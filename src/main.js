@@ -6,6 +6,10 @@ import store from './store/store'
 
 Vue.config.productionTip = false
 
+Vue.filter('money', valor => {
+	return `R$ ${parseFloat(valor).toFixed(2)}`.replace('.', ',')
+})
+
 new Vue({
 	router,
 	store,
