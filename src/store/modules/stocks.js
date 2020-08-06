@@ -7,6 +7,11 @@ export default {
   mutations: {
     setStock(state, stocks) {
       state.stocks = stocks
+    },
+    ramdomizeStock(state) {
+      state.stocks.forEach(stock => {
+        stock.price = Math.round(stock.price * (1 + Math.random() - 0.45))
+      }); 
     }
   },
   actions: {
@@ -15,6 +20,9 @@ export default {
     },
     initStock({ commit }) {
       commit('setStock', stocks )
+    },
+    ramdomizeStock({ commit }) {
+      commit('ramdomizeStock')
     }
   },
   getters: {
